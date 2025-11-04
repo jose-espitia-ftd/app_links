@@ -81,6 +81,7 @@ public final class AppLinksIosPlugin: NSObject, FlutterPlugin, FlutterStreamHand
     
     if let url = userActivity.webpageURL {
       handleLink(url: url)
+      return true
     }
     
     return false
@@ -94,7 +95,7 @@ public final class AppLinksIosPlugin: NSObject, FlutterPlugin, FlutterStreamHand
   ) -> Bool {
     
     handleLink(url: url)
-    return false
+    return true
   }
   
   public func onListen(
