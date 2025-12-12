@@ -95,7 +95,7 @@ public final class AppLinksIosPlugin: NSObject, FlutterPlugin, FlutterStreamHand
   ) -> Bool {
     
     handleLink(url: url)
-    return true
+    return false
   }
   
   public func onListen(
