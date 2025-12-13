@@ -93,8 +93,12 @@ public final class AppLinksIosPlugin: NSObject, FlutterPlugin, FlutterStreamHand
     open url: URL,
     options: [UIApplication.OpenURLOptionsKey : Any] = [:]
   ) -> Bool {
-    
     handleLink(url: url)
+
+    let facebookAppId: String? = Bundle.main.object(forInfoDictionaryKey: "FacebookAppID") as? String
+    if facebookAppId != nil && url.scheme == "fb\(facebookAppId)" {
+        return true
+    }
     return false
   }
   
