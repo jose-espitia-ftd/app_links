@@ -96,10 +96,11 @@ public final class AppLinksIosPlugin: NSObject, FlutterPlugin, FlutterStreamHand
     handleLink(url: url)
 
     let facebookAppId: String? = Bundle.main.object(forInfoDictionaryKey: "FacebookAppID") as? String
-    if facebookAppId != nil && url.scheme == "fb\(facebookAppId)" {
-        return true
+    print(facebookAppId);
+    if facebookAppId != nil && url.scheme == "fb\(facebookAppId ?? "")" {
+        return false
     }
-    return false
+    return true
   }
   
   public func onListen(
